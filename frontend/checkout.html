@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Store - Checkout</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Checkout</h1>
+        <section id="order-summary">
+            <h2>Order Summary</h2>
+            <!-- Order details will be dynamically loaded here -->
+        </section>
+        <section id="payment-form">
+            <h2>Payment Information</h2>
+            <form id="checkout-form">
+                <div>
+                    <label for="card-number">Card Number:</label>
+                    <input type="text" id="card-number" required>
+                </div>
+                <div>
+                    <label for="expiry-date">Expiry Date:</label>
+                    <input type="text" id="expiry-date" placeholder="MM/YY" required>
+                </div>
+                <div>
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" required>
+                </div>
+                <button type="submit" class="btn">Pay Now</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 E-commerce Store. All rights reserved.</p>
+    </footer>
+
+    <script src="js/checkout.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Store - Sign Up</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/auth.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html" class="active">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+      <div class="signup-container"></div>
+        <h1>Signup</h1>
+        <form id="signup-form" class="auth-form">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <span class="error-message"   
+ id="username-error"></span>   
+
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error-message" id="email-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>   
+
+                <input type="password" id="password" name="password" required>
+                <span class="error-message" id="password-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+                <span class="error-message" id="confirm-password-error"></span>
+            </div>   
+
+            <button type="submit" class="btn">Signup</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 E-commerce Store. All rights reserved.</p>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script>
+        // Get references to form elements
+        const signupForm = document.getElementById('signup-form');
+        const usernameInput = document.getElementById('username');
+        const   
+ emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirm-password');   
+
+        const usernameError = document.getElementById('username-error');
+        const emailError = document.getElementById('email-error');
+        const passwordError = document.getElementById('password-error');   
+
+        const confirmPasswordError = document.getElementById('confirm-password-error');
+
+        // Add event listener   
+
+        signupForm.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent default form submission
+
+            // Validate form fields
+            let isValid = true;
+            if (!usernameInput.value) {
+                usernameError.textContent = 'Username is required';
+                isValid = false;
+            } else {
+                usernameError.textContent = '';
+            }
+            if (!emailInput.value || !isValidEmail(emailInput.value)) {
+                emailError.textContent = 'Invalid email address';
+                isValid = false;
+            } else {
+                emailError.textContent = '';
+            }
+            if (!passwordInput.value || passwordInput.value.length < 8) {
+                passwordError.textContent = 'Password must be at least 8 characters long';
+                isValid = false;
+            } else {
+                passwordError.textContent = '';
+            }
+            if   
+ (passwordInput.value !== confirmPasswordInput.value) {
+                confirmPasswordError.textContent = 'Passwords do not match';
+                isValid = false;
+            } else {
+                confirmPasswordError.textContent   
+ = '';
+            }
+
+            // If form is valid, submit it to the backend
+            if (isValid) {
+                try {
+                    const response = await signup(usernameInput.value, emailInput.value, passwordInput.value);
+                    // Handle response from backend
+                    if (response.ok) {
+                        console.log('Signup successful:', response.data);
+                        // Redirect to login page or other appropriate action
+                    } else {
+                        console.error('Signup failed:', response.data.message);
+                    }
+                } catch (error) {
+                    console.error('Error during signup:', error);
+                }
+            }
+        });
+
+        // Helper function to validate email address
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);   
+
+        }
+    </script>
+</body>
+</html>
