@@ -1,33 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E-commerce Store</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="cart.html">Cart</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="signup.html">Sign Up</a></li>
-            </ul>
-        </nav>
-    </header>
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f8f9fa;
+      }
+
+      header {
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      nav ul {
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+      }
+
+      nav ul li {
+        margin: 0 1rem;
+      }
+
+      nav ul li a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      nav ul li a:hover {
+        color: #007bff;
+      }
+
+      main {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #333;
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .product-card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .product-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .product-info {
+        padding: 1rem;
+      }
+
+      .product-info h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .price {
+        font-weight: bold;
+        color: #28a745;
+        margin-bottom: 1rem;
+      }
+
+      button {
+        display: block;
+        width: 100%;
+        padding: 0.75rem;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 1rem;
+        margin-top: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+      </nav>
+    </header>
+<section class="hero"></section>
+            <img src="images/hero-banner.webp" alt="Special Offers Banner">
+        </section>
     <main>
-        <h1>Welcome to Our E-commerce Store</h1>
-        <div id="featured-products"></div>
+      <h1>Featured Products</h1>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="images/product1.webp" alt="Wireless Earbuds" />
+          <div class="product-info">
+            <h3>Wireless Earbuds</h3>
+            <p class="price">$49.99</p>
+            <button>Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="images/product2.webp" alt="Smart Watch" />
+          <div class="product-info">
+            <h3>Smart Watch</h3>
+            <p class="price">$129.99</p>
+            <button>Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="images/product3.webp" alt="Laptop Stand" />
+          <div class="product-info">
+            <h3>Laptop Stand</h3>
+            <p class="price">$29.99</p>
+            <button>Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="images/product4.webp" alt="Bluetooth Speaker" />
+          <div class="product-info">
+            <h3>Bluetooth Speaker</h3>
+            <p class="price">$79.99</p>
+            <button>Add to Cart</button>
+          </div>
+        </div>
+      </div>
+             <section class="categories"></section>
+            <h2>Shop by Category</h2>
+            <div class="category-grid">
+                <a href="category-electronics.html" class="category-card">
+                    <img src="images/category-electronics.jpg" alt="Electronics">
+                    <h3>Electronics</h3>
+                </a>
+                <a href="category-books.html" class="category-card">
+                    <img src="images/category-books.jpg" alt="Books">
+                    <h3>Books</h3>
+                </a>
+                <a href="category-fashion.html" class="category-card">
+                    <img src="images/category-fashion.jpg" alt="Fashion">
+                    <h3>Fashion</h3>
+                </a>
+                <a href="category-home.html" class="category-card">
+                    <img src="images/category-home.jpg" alt="Home & Kitchen">
+                    <h3>Home & Kitchen</h3>
+                </a>
+            </div>
+        </section>
+
+        <section class="deals">
+            <h2>Today's Deals</h2>
+            <div class="deals-slider">
+                <!-- Add deal items here -->
+                <div class="deal-item">
+                    <img src="images/deal1.jpg" alt="Deal 1">
+                    <p>Up to 40% off on Home Appliances</p>
+                </div>
+                <div class="deal-item">
+                    <img src="images/deal2.jpg" alt="Deal 2">
+                    <p>Flash Sale: 50% off on Bestselling Books</p>
+                </div>
+                <!-- Add more deal items as needed -->
+            </div>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 E-commerce Store. All rights reserved.</p>
+      <p>&copy; 2024 E-commerce Store. All rights reserved.</p>
     </footer>
 
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>
